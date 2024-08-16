@@ -1,0 +1,4 @@
+*.vscode
+Logs*
+*.sln
+Library/*
