@@ -2,3 +2,5 @@
 Logs*
 *.sln
 Library/*
+Temp/*
+*.asset
