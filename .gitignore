@@ -4,3 +4,4 @@ Logs*
 Library/*
 Temp/*
 *.asset
+Assembly-CSharp.csproj
