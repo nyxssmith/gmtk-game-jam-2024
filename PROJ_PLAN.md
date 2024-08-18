@@ -13,3 +13,6 @@
 | black holes things get bigger |     |             |
 | Menus                         |     |             |
 | Must be N size to pickup      |     |             |
+| Sound                         |     |             |
+| Color for objects             |     |             |
+| camera controls               |     |             |
