@@ -8,6 +8,13 @@ public class CameraFollow : MonoBehaviour
     public Vector3 locationOffset;
     public Vector3 rotationOffset;
 
+    private Pickup pickupController;
+    void Start()
+    {
+        // get pickup info from player
+        pickupController = target.gameObject.GetComponent<Pickup>();
+        pickupController.UpdateCamera(this);
+    }
     void FixedUpdate()
     {
 
@@ -20,5 +27,10 @@ public class CameraFollow : MonoBehaviour
         transform.rotation = desiredrotation;
         //Quaternion smoothedrotation = Quaternion.Lerp(transform.rotation, desiredrotation, smoothSpeed);
         //transform.rotation = smoothedrotation;
+    }
+
+    public void UpdateLocationOffset(float radius){
+        // TODO better logic for changing camera based on size of ball
+        locationOffset.y += radius;
     }
 }
