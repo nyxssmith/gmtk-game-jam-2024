@@ -2,17 +2,17 @@
 
 ## Features List : Claiming
 
-| Feature                       | Who | Status      |
-| ----------------------------- | --- | ----------- |
-| Movement / Rolling            | Nyx | In Progress |
-| Stick to Stuff                | Nyx | In Progress |
-| Get Bigger on pickup          | Nyx |             |
-| Score on pickup               |     |             |
-| Level                         |     |             |
-| Black Holes drop things       |     |             |
-| black holes things get bigger |     |             |
-| Menus                         |     |             |
-| Must be N size to pickup      |     |             |
-| Sound                         |     |             |
-| Color for objects             |     |             |
-| camera controls               |     |             |
+| Feature                                                | Who | Status      |
+| ------------------------------------------------------ | --- | ----------- |
+| Movement / Rolling                                     | Nyx | In Progress |
+| Stick to Stuff                                         | Nyx | In Progress |
+| Get Bigger on pickup                                   | Nyx |             |
+| Score on pickup                                        |     |             |
+| Level                                                  |     |             |
+| Black Holes drop things                                |     |             |
+| black holes things get bigger                          |     |             |
+| Menus                                                  |     |             |
+| Must be N size to pickup                               |     |             |
+| Sound                                                  |     |             |
+| Color for objects                                      |     |             |
+| camera controls (needs r stick control to move camera) |     | in progress |

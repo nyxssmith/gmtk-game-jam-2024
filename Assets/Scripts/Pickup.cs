@@ -7,6 +7,7 @@ public class Pickup : MonoBehaviour
     public Rigidbody rigid;
 
     public string pickupTag="pickup";
+    public float massMultiplierToPickups=0.1f;// 1.0 = no chancge to mass of pickups
     
     void OnCollisionEnter(Collision collision)
     {
@@ -20,6 +21,7 @@ public class Pickup : MonoBehaviour
                 other.GetComponent<Collider>().enabled = false;
                 // disable gravity
                 other.GetComponent<Rigidbody>().useGravity = false;
+                other.GetComponent<Rigidbody>().mass*=massMultiplierToPickups;
                 // parent it
                 other.transform.SetParent(this.transform);
                 // make a joint
