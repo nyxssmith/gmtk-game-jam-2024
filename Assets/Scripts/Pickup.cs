@@ -26,36 +26,49 @@ public class Pickup : MonoBehaviour
             GameObject other = contact.otherCollider.gameObject;// collision.rigidbody.gameObject;
             if(other.tag == pickupTag){
                 ModifyPickup(other,contact);
-                ModifySelf(other);
+                ModifySelf(other,contact);
             }
         }   
     }
 
     private void ModifyPickup(GameObject other,ContactPoint contact){
-
-                // disable collision for it
-                other.GetComponent<Collider>().enabled = false;
-                // disable gravity
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent<Rigidbody>().mass*=massMultiplierToPickups;
-                // parent it
-                other.transform.SetParent(this.transform);
-                // make a joint
-                FixedJoint joint = other.AddComponent<FixedJoint>();
-                // set anochor
-                joint.anchor = contact.point;// collision.contacts[0].point;
-                // set connection
-                joint.connectedBody = rigid;
+        // TODO debug crazy jiggling
+        // disable collision for it
+        other.GetComponent<Collider>().enabled = false;
+        // disable gravity
+        other.GetComponent<Rigidbody>().useGravity = false;
+        other.GetComponent<Rigidbody>().mass*=massMultiplierToPickups;
+        // parent it
+        other.transform.SetParent(this.transform);
+        // make a joint
+        FixedJoint joint = other.AddComponent<FixedJoint>();
+        // set anochor
+        joint.anchor = contact.point;// collision.contacts[0].point;
+        // set connection
+        joint.connectedBody = rigid;
     }
-    private void ModifySelf(GameObject other){
+    private void ModifySelf(GameObject other,ContactPoint contact){
+        // first check where object hit on face
+        // need to check that ball is covered enough before a scale change
+
+        // if not big enough add size of other to size should add buffer
+        // once its time for a scale change do that
+        // ex: small objs add .5 and keep track of list of small objects this size change
+        // once has enough small can get medium etc
+        Debug.Log(contact.normal);
+
+
+        // TODO change below to above code
         // make self bigger based on other object
-        collider.radius+=1;
+        //collider.radius+=1;
+
         // update camera
-        cameraFollower.UpdateLocationOffset(collider.radius);
+        //cameraFollower.UpdateLocationOffset(collider.radius);
 
 
     }
     public void UpdateCamera(CameraFollow newCameraFollwer){
+        // camera calls this to tell player about itself
         cameraFollower = newCameraFollwer;
     }
 }
