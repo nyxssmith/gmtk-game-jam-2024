@@ -18,5 +18,6 @@ public class PlayerController : MonoBehaviour
         // apply forces to self
         rigid.AddForce(new Vector3(0,0,vertical),ForceMode.Force);
         rigid.AddForce(new Vector3(horizontal,0,0),ForceMode.Force);
+        //todo add force if player stuck starting at min go to max
     }
 }
