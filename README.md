@@ -29,3 +29,4 @@ multi player
 split screen or local via controllers
 leaderboard online system
 multiple levels
+objects dropped in via stl in folder
