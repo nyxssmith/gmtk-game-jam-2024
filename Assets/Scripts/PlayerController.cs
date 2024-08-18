@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public Rigidbody rigid;
+    public float speedLimit = 1.0f;
     public float moveSpeed = 5;
     // Start is called before the first frame update
     //void Start()
@@ -16,8 +17,11 @@ public class PlayerController : MonoBehaviour
         float vertical = Input.GetAxis("Vertical")*moveSpeed;
         float horizontal = Input.GetAxis("Horizontal")*moveSpeed;
         // apply forces to self
-        rigid.AddForce(new Vector3(0,0,vertical),ForceMode.Force);
-        rigid.AddForce(new Vector3(horizontal,0,0),ForceMode.Force);
-        //todo add force if player stuck starting at min go to max
+
+        if (rigid.GetAccumulatedForce().magnitude < this.speedLimit) {
+            rigid.AddForce(new Vector3(0,0,vertical),ForceMode.Force);
+            rigid.AddForce(new Vector3(horizontal,0,0),ForceMode.Force);
+        }
+        
     }
 }
